@@ -24,7 +24,6 @@ var ApplePushResponses = map[uint8]string{
 type PushNotificationResponse struct {
 	Success       bool
 	AppleResponse string
-	Error         error
 }
 
 // NewPushNotificationResponse creates and returns a new PushNotificationResponse

@@ -56,26 +56,22 @@ func NewClient(gateway, certificateFile, keyFile string) (c *Client) {
 
 // Send connects to the APN service and sends your push notification.
 // Remember that if the submission is successful, Apple won't reply.
-func (client *Client) Send(pn *PushNotification) (resp *PushNotificationResponse) {
+func (client *Client) Send(pn *PushNotification) (resp *PushNotificationResponse, err error) {
 	resp = new(PushNotificationResponse)
 
 	payload, err := pn.ToBytes()
 	if err != nil {
 		resp.Success = false
-		resp.Error = err
 		return
 	}
 
 	err = client.ConnectAndWrite(resp, payload)
 	if err != nil {
 		resp.Success = false
-		resp.Error = err
 		return
 	}
 
 	resp.Success = true
-	resp.Error = nil
-
 	return
 }
 
