@@ -46,6 +46,8 @@ type Payload struct {
 	ContentAvailable int         `json:"content-available,omitempty"`
 	Category         string      `json:"category,omitempty"`
 	Title            string      `json:"title,omitempty"`
+	WatchTitle       string      `json:"watchTitle,omitempty"`
+	POIType          string      `json:"poiType,omitempty"`
 }
 
 // NewPayload creates and returns a Payload structure.
